@@ -1,0 +1,181 @@
+/* 基础重置 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+  font-size: 20px;
+  background: #DCCCAC
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  background-color: #546B41;
+  display: flex;
+  justify-content: center;
+}
+ul li {
+  float: none；
+}
+
+ul li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-align: center; 
+}
+
+ul li a:hover {
+  background-color: #99AD7A;
+}
+
+.color-box {
+  background-color: #99ad7a; 
+  border: 5px solid #546B41;
+  font-family:cursive;
+  color: white; 
+  margin:auto;            
+  padding: auto;            
+  width: 900px;  
+  height: 200px;           
+  border-radius: 8px;       
+  text-align: center; 
+  }
+  .color-box {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  text-align: center;
+  }
+
+ul li {
+  position: relative;
+  display: inline-block; 
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;       
+  left: 50%;       
+  transform: translateX(-50%) translateY(-10px); 
+  background-color: #3b5336; 
+  min-width: 150px;
+  border-radius: 4px;
+  padding: 10px 0;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  
+  opacity: 050;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index:100;
+}
+
+.dropdown-menu a {
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+
+.dropdown-menu a:hover {
+  background-color: #6B8E23; 
+}
+
+.has-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0); 
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 画廊包裹层居中 */
+.gallery-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+/* 响应式网格布局 */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 自动填满，每列最少300px */
+  gap: 20px; /* 卡片之间的间距 */
+}
+
+/* 单个照片卡片盒 */
+.gallery-item {
+  position: relative;
+  height: 250px;
+  border-radius: 12px;
+  overflow: hidden; /* 极其重要：隐藏图片放大后溢出的部分 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+/* 默认状态下的图片 */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 保证图片不变形 */
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* 平滑过渡动画 */
+}
+
+/* 悬停状态：图片放大 */
+.gallery-item:hover img {
+  transform: scale(1.1); /* 鼠标移上去时放大 1.1 倍 */
+}
+
+/* 悬停遮罩层（默认隐藏并在下方） */
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%); /* 渐变黑遮罩 */
+  display: flex;
+  align-items: flex-end; /* 让文字靠底部对齐 */
+  padding: 20px;
+  opacity: 0; /* 默认透明 */
+  transform: translateY(20px); /* 默认向下偏移 20px */
+  transition: all 0.4s ease-in-out; /* 遮罩过渡动画 */
+}
+
+/* 悬停状态：遮罩层显现并向上滑入 */
+.gallery-item:hover .gallery-overlay {
+  opacity: 1; /* 变为不透明 */
+  transform: translateY(0); /* 回到原位 */
+}
+
+/* 遮罩文字样式 */
+.overlay-text h3 {
+  color: #ffffff;
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.overlay-text p {
+  color: #e5e7eb;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
